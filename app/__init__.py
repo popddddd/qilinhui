@@ -16,5 +16,7 @@ database.init_db()
 app.mount("/static", StaticFiles(directory=str(BASE_DIR / "app" / "static")), name="static")
 
 from app.auth import router as auth_router
+from app.backtest_demo import router as backtest_router
 
 app.include_router(auth_router)
+app.include_router(backtest_router)

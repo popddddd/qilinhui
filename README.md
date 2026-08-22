@@ -22,6 +22,7 @@
 | 登录保护 | 未登录访问 `/dashboard` 自动跳回 `/login` |
 | 退出 | 清除 Session 并删除 Cookie |
 | Cookie 安全 | `HttpOnly=True` + `SameSite=Lax`，值经 itsdangerous 签名防伪造 |
+| 回测展示（Demo） | `/backtest`（登录后可见）：渲染 B1 策略回测样例数据 —— K 线买卖点、权益曲线、统计卡片、交易明细 |
 
 ## 项目结构
 
