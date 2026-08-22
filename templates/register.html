@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}注册 · 麒麟汇{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center" style="margin-top: 10vh;">
+    <div class="col-md-6 col-lg-5">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h4 class="text-center mb-4">麒麟汇 · 注册</h4>
+          {% if error %}
+          <div class="alert alert-danger">{{ error }}</div>
+          {% endif %}
+          <form method="post" action="/register" onsubmit="return checkPasswords()">
+            <div class="mb-3">
+              <label for="username" class="form-label">用户名</label>
+              <input type="text" class="form-control" id="username" name="username"
+                     value="{{ form.username or '' }}" required autofocus>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">邮箱</label>
+              <input type="email" class="form-control" id="email" name="email"
+                     value="{{ form.email or '' }}" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">密码（至少 6 位）</label>
+              <input type="password" class="form-control" id="password" name="password" minlength="6" required>
+            </div>
+            <div class="mb-3">
+              <label for="confirm_password" class="form-label">确认密码</label>
+              <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+            </div>
+            <div id="password_mismatch" class="alert alert-danger d-none">两次输入的密码不一致</div>
+            <button type="submit" class="btn btn-primary w-100">注册</button>
+          </form>
+          <p class="text-center mt-3 mb-0 small">已有账号？<a href="/login">直接登录</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+function checkPasswords() {
+  var password = document.getElementById('password').value;
+  var confirmPassword = document.getElementById('confirm_password').value;
+  var errorBox = document.getElementById('password_mismatch');
+  if (password !== confirmPassword) {
+    errorBox.classList.remove('d-none');
+    return false;
+  }
+  return true;
+}
+</script>
+{% endblock %}

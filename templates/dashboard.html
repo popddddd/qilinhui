@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}仪表盘 · 麒麟汇{% endblock %}
+{% block content %}
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="container">
+    <span class="navbar-brand">麒麟汇 · 量化交易</span>
+    <div class="d-flex align-items-center gap-3">
+      <span class="navbar-text text-white">欢迎，{{ username }}</span>
+      <a href="/logout" class="btn btn-outline-light btn-sm">退出</a>
+    </div>
+  </div>
+</nav>
+<div class="container mt-5">
+  <div class="alert alert-warning">
+    当前数据仅作演示，重启后注册信息将清空。
+  </div>
+  <div class="card text-center shadow-sm">
+    <div class="card-body p-5">
+      <h3 class="card-title mb-3">📈 量化交易引擎</h3>
+      <p class="card-text text-muted">等待同事开源的交易工具接入中...</p>
+      <span class="badge bg-secondary">Demo</span>
+    </div>
+  </div>
+</div>
+{% endblock %}
