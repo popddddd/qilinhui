@@ -41,7 +41,7 @@ quant_trading_demo/
 │   └── dashboard.html   # 仪表盘占位页
 ├── main.py              # 本地启动入口
 ├── requirements.txt     # 依赖清单
-├── runtime.txt          # 指定 Python 3.10
+├── .python-version      # 指定 Python 3.10
 └── README.md            # 本手册
 ```
 
@@ -126,7 +126,7 @@ quant_trading_demo/
 
 5. 点击页面底部 **Create Web Service**。
 
-> 仓库里自带的 `runtime.txt`（内容 `python-3.10.12`）会让 Render 自动使用 Python 3.10；如果构建时报版本不支持，把 `runtime.txt` 改成 `python-3.11.9` 或删除它即可（本项目兼容更高版本）。
+> 仓库里的 `.python-version` 文件（内容 `3.10.12`）会让 Render 自动使用 Python 3.10；如果构建时报版本不支持，把它改成 `3.12` 或 `3.13` 再推送即可（本项目兼容更高版本）。
 
 ### 第 4 步：等待部署并访问
 
@@ -145,7 +145,7 @@ quant_trading_demo/
 | 改完代码想立即重新部署 | 打开服务 → 右上角 **Manual Deploy → Deploy latest commit** |
 | 注册后重启数据没了 | 正常现象，免费版无持久化磁盘（见开头 Demo 说明） |
 | 端口相关报错 `address already in use` | 确认 Start Command 用的是 `--port $PORT`（Render 会把端口注入环境变量），不要写死 8000 |
-| 构建失败提示 Python 版本不支持 | 修改 `runtime.txt` 中的版本号（如 `python-3.11.9`），再重新推送触发部署 |
+| 构建失败提示 Python 版本不支持 | 修改 `.python-version` 中的版本号（如 `3.12`），再重新推送触发部署 |
 
 ---
 
