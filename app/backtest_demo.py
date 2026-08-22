@@ -54,7 +54,7 @@ async def backtest_page(request: Request) -> HTMLResponse:
     username = get_current_user(request)
     if username is None:
         return RedirectResponse(url="/login")
-    run = _load_run("smoke-r2-000026")
+    run = _load_run("600519-web-demo")
     trades = _build_trades(run)
     return templates.TemplateResponse(
         request,
